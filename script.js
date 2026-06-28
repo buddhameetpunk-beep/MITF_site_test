@@ -860,6 +860,33 @@ const stickerFiles = [
     top: "62%",
     width: "210px",
     rotate: "-10deg"
+  },
+  {
+    name: "pixel-sticker-01",
+    src: "stickers/stickers-01.png",
+    left: "8%",
+    top: "48%",
+    width: "178px",
+    rotate: "-5deg",
+    cutout: true
+  },
+  {
+    name: "pixel-sticker-02",
+    src: "stickers/stickers-02.png",
+    left: "78%",
+    top: "22%",
+    width: "142px",
+    rotate: "4deg",
+    cutout: true
+  },
+  {
+    name: "pixel-sticker-03",
+    src: "stickers/stickers-03.png",
+    left: "74%",
+    top: "72%",
+    width: "188px",
+    rotate: "6deg",
+    cutout: true
   }
 ];
 
@@ -874,6 +901,11 @@ function createStickers() {
   stickerFiles.forEach((file, index) => {
     const sticker = document.createElement("div");
     sticker.className = "sticker";
+
+    if (file.cutout) {
+      sticker.classList.add("is-cutout");
+    }
+
     sticker.dataset.name = file.name;
 
     sticker.style.setProperty("--sticker-left", file.left);
